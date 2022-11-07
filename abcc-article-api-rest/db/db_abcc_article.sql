@@ -79,7 +79,7 @@ CREATE TABLE `article`  (
   `amount` int(9) NOT NULL,
   `discontinued` tinyint(1) NOT NULL,
   `created_at` date NULL,
-  `deleted_ad` date NULL,
+  `deleted_at` date NULL,
   CONSTRAINT `pk_article_id` PRIMARY KEY (`sku`),
   CONSTRAINT `fk_article_class_id` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_article_family_id` FOREIGN KEY (`family_id`) REFERENCES `family` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -87,11 +87,11 @@ CREATE TABLE `article`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_spanish2_ci ROW_FORMAT = Dynamic;
 
 -- add registrer catalogue
-INSERT INTO article(sku, article_name, brand, model, department_id, class_id, family_id, stock, amount, discontinued) VALUES 
- (111111, 'Television', 'samsung', 'tr453', 1, 1, 1, 12, 8,0);
- INSERT INTO article(sku, article_name, brand, model, department_id, class_id, family_id, stock, amount, discontinued) VALUES 
- (222222, 'sillon', 'Turu', 'sl1234', 5,1, 3, 14, 5,1);
- INSERT INTO article(sku, article_name, brand, model, department_id, class_id, family_id, stock, amount, discontinued) VALUES 
- (444444, 'IPHONE 11', 'Apple', 'app1120', 3, 2, 2, 10, 5,0);
- INSERT INTO article(sku, article_name, brand, model, department_id, class_id, family_id, stock, amount, discontinued) VALUES 
- (555555, 'TENIS NIKE', 'zapateria', 'tnn123', 4,3, 4, 12, 2,0);
+INSERT INTO article(sku, article_name, brand, model, department_id, class_id, family_id, stock, amount, discontinued,created_at,deleted_at) VALUES 
+ (11111, 'Television', 'samsung', 'tr453', 1, 1, 1, 12, 8,0,"2022-11-07","1900-01-01");
+ INSERT INTO article(sku, article_name, brand, model, department_id, class_id, family_id, stock, amount, discontinued,created_at,deleted_at) VALUES 
+ (222222, 'sillon', 'Turu', 'sl1234', 5,1, 3, 14, 5,1,'2022-11-07','1900-01-01');
+ INSERT INTO article(sku, article_name, brand, model, department_id, class_id, family_id, stock, amount, discontinued,created_at,deleted_at) VALUES 
+ (444444, 'IPHONE 11', 'Apple', 'app1120', 3, 2, 2, 10, 5,0,"2022-11-07","1900-01-01");
+ INSERT INTO article(sku, article_name, brand, model, department_id, class_id, family_id, stock, amount, discontinued,created_at,deleted_at) VALUES 
+ (333333, 'TENIS NIKE', 'zapateria', 'tnn123', 4,3, 4, 12, 2,0,"2022-11-07","1900-01-01");

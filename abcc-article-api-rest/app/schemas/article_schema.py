@@ -15,5 +15,7 @@ class ArticleSchema(ma.Schema):
       "family_id",
       "stock",
       "amount",
-      "discontinued"
+      "discontinued",
+      "created_at",
+      "deleted_at"
     )

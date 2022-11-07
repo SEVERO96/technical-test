@@ -14,8 +14,12 @@ class Article(db.Model):
     department_id = db.Column(db.Integer, db.ForeignKey('department.id'),nullable=False)
     class_id = db.Column(db.Integer, db.ForeignKey('class.id'),nullable=False)
     family_id = db.Column(db.Integer, db.ForeignKey('family.id'),nullable=False)
+    family_id = db.Column(db.Integer, db.ForeignKey('family.id'),nullable=False)
+    stock = db.Column(db.Integer, nullable=False)
+    amount = db.Column(db.Integer, nullable=False)
+    discontinued = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
-    deleted_ad = db.Column(db.DateTime, nullable=True)
+    deleted_at = db.Column(db.DateTime, nullable=True)
 
     def get_all(self, params=None):
         """get all articles that are not deleted"""
@@ -27,6 +31,9 @@ class Article(db.Model):
     
     def create(self):
         """create a new supplier in DB"""
+        self.discontinued = 0
+        self.created_at = datetime.now().strftime("%Y-%m-%d")
+        self.created_ad = "1900-01-01"
         db.session.add(self)
         db.session.commit()
         

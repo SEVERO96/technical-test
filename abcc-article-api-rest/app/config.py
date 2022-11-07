@@ -10,3 +10,5 @@ class Config:
         self.__db = os.environ.get("MYSQL_DATABASE")
         self.SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{self.__user}:{self.__pass}@{self.__host}:{self.__port}/{self.__db}"
         self.SQLALCHEMY_TRACK_MODIFICATIONS = False
+        self.SQLALCHEMY_POOL_SIZE=20
+        self.SQLALCHEMY_POOL_TIMEOUT=300
