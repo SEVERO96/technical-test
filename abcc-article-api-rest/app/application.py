@@ -1,11 +1,14 @@
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
+from blueprints.article import article_bp
 
 db = SQLAlchemy()
 
 app = Flask(__name__)
 app.config.from_object(Config())
+
+app.register_blueprint(article_bp)
 
 db.init_app(app)
 

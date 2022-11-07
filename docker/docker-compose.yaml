@@ -1,16 +1,16 @@
 version: '3'
 services:
-    front-abcc-article:
-        container_name: abcc-article-frontend
+    front-abcc_article:
+        container_name: abcc_article-frontend
         build: ../abcc-article-frontend
         restart: always
         ports:
             - '3000:3000'
         volumes:
-            - ../abcc-article-frontend:/abcc-article-frontend
+            - ../abcc-article-frontend:/abcc_article-frontend
 
-    flask-abcc-article-api:
-        container_name: abcc-article-api
+    flask-abcc_article-api:
+        container_name: abcc_article-api
         build: ../abcc-article-api-rest/app
         restart: always
         ports:
@@ -18,30 +18,30 @@ services:
         volumes:
             - ../abcc-article-api-rest/app:/app
         networks:
-            - abcc-article_net
+            - abcc_article_net
         environment:
             MYSQL_USER: root
             MYSQL_PASSWORD: root
-            MYSQL_HOST: mysql-abcc-article-db
+            MYSQL_HOST: mysql_abcc_article_db
             MYSQL_PORT: 3306
-            MYSQL_DATABASE: abcc-article
+            MYSQL_DATABASE: abcc_article
 
-    mysql-abcc-article-db:
-        container_name: mysql-abcc-article-db
+    mysql-abcc_article-db:
+        container_name: mysql_abcc_article_db
         image: mysql:5.7
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: abcc-article
+            MYSQL_DATABASE: abcc_article
         ports:
             - '3308:3306'
         volumes:
             - ../abcc-article-api-rest/db/database:/var/lib/mysql
         networks:
-            - abcc-article_net
+            - abcc_article_net
 
 networks:
-    abcc-article_net:
+    abcc_article_net:
 
 volumes:
     app:
